@@ -38,8 +38,8 @@
         flex-wrap: wrap;
       }
       video {
-        height: 300px;
-        width: 400px;
+        height: 100%;
+        width: 100%;
         object-fit: cover;
         padding: 8px;
       }
@@ -92,6 +92,7 @@
       <div class="main__right">
         <div class="main__header">
           <h6>Chat</h6>
+          <ul id="chat-messages" style="color:white;"></ul>
         </div>
         <div class="main__chat_window">
           <ul class="messages"></ul>
@@ -105,5 +106,19 @@
         </div>
       </div>
     </div>
+
+    <script>
+      (function() {
+        $("#chat_message").keyup(function(e) {
+          if(e.keyCode == 13) {
+            console.log("ENTER!");
+            var li = document.createElement("li");
+            li.innerHTML = $("#chat_message").val();
+            $("#chat-messages").append(li)
+          }
+        })
+      })();
+    </script>
   </body>
 </html>
+
